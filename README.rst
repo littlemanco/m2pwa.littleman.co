@@ -25,9 +25,6 @@ Justification
 
 There might be 
 
-Limitations
-'''''''''''
-
 Security Alerts
 '''''''''''''''
 
@@ -42,6 +39,12 @@ License       Code Style   Locale
 ------------- ------------ --------------
 Apache-2      Zend         en-AU [lang]_
 ============= ============ ==============
+
+Technology
+''''''''''
+
+NPM
+  - polymer-cli
 
 Compatibility
 '''''''''''''

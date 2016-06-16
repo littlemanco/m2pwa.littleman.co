@@ -1,0 +1,30 @@
+<!-- No idea what this does yet. -->
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<!-- A custom DOM element. Another polymer component? That seems very meta -->
+<dom-module id="my-product">
+
+  <!-- Styling -->
+  <!-- What does the <template> node mean? Is it the "printable" content? -->
+  <template>
+    <style type="text/css">
+      /* :host appears to be something that allows styling in shadow dom */
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+    <h1>New View</1>
+    <p>Here's some text that's not in the tutorial. I'm just curious to see  where it goes. </p>
+  </template>
+  
+  <!-- This "Creates the elements prototype and registers it. " - Magic, at the moment -->
+  <script type="text/javascript">
+    Polymer({
+      is: 'my-product',
+      properties: {
+        route: Object // What is Object?
+      }
+    });
+  </script>
+</dom-module>

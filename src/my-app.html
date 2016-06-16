@@ -22,11 +22,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
-
   <template>
-
-    <style>
-
+    <style type="text/css">
       :host {
         display: block;
         --app-primary-color: #4285f4;
@@ -61,16 +58,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
     </style>
-
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
         pattern="/:page"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
-
     <app-drawer-layout fullbleed>
-
       <!-- Drawer content -->
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
@@ -83,11 +77,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <!-- Main content -->
       <app-header-layout has-scrolling-region>
-
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <div title>My App</div>
+            <div title>m2pwa</div>
           </app-toolbar>
         </app-header>
 
@@ -98,25 +91,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-pages>
 
       </app-header-layout>
-
     </app-drawer-layout>
-
   </template>
 
-  <script>
-
+  <script type="text/javascript">
     Polymer({
-
       is: 'my-app',
-
       properties: {
-
         page: {
           type: String,
           reflectToAttribute: true,
           observer: '_pageChanged'
         },
-
       },
 
       observers: [
@@ -132,9 +118,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.importHref(
           this.resolveUrl('my-' + page + '.html'), null, null, true);
       }
-
     });
-
   </script>
-
 </dom-module>

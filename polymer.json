@@ -1,9 +1,9 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/m2pwa-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html"
+    "src/m2pwa-view1.html",
+    "src/m2pwa-view2.html",
+    "src/m2pwa-view3.html"
   ]
 }

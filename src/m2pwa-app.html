@@ -19,9 +19,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="my-icons.html">
+<link rel="import" href="m2pwa-icons.html">
 
-<dom-module id="my-app">
+<dom-module id="m2pwa-app">
   <template>
     <style type="text/css">
       :host {
@@ -87,10 +87,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- "iron-pages" seems to be some way of registering a view. -->
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-product name="product"></my-product>
+          <m2pwa-view1 name="view1"></m2pwa-view1>
+          <m2pwa-view2 name="view2"></m2pwa-view2>
+          <m2pwa-view3 name="view3"></m2pwa-view3>
+          <m2pwa-product name="product"></m2pwa-product>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -98,7 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script type="text/javascript">
     Polymer({
-      is: 'my-app',
+      is: 'm2pwa-app',
       properties: {
         page: {
           type: String,
@@ -118,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _pageChanged: function(page) {
         // load page import on demand.
         this.importHref(
-          this.resolveUrl('my-' + page + '.html'), null, null, true);
+          this.resolveUrl('m2pwa-' + page + '.html'), null, null, true);
       }
     });
   </script>

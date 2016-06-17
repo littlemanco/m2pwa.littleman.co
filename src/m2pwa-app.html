@@ -69,10 +69,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
-          <a name="product" href="/product">Product</a>
+          <a name="home" href="/home">Home</a>
+          <a name="search" href="/search">Search</a>
         </iron-selector>
       </app-drawer>
 
@@ -87,9 +85,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- "iron-pages" seems to be some way of registering a view. -->
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
-          <m2pwa-view1 name="view1"></m2pwa-view1>
-          <m2pwa-view2 name="view2"></m2pwa-view2>
-          <m2pwa-view3 name="view3"></m2pwa-view3>
+          <m2pwa-home name="home"></m2pwa-home>
+          <m2pwa-search name="search"></m2pwa-search>
+          <m2pwa-checkout name="checkout"></m2pwa-checkout>
           <m2pwa-product name="product"></m2pwa-product>
         </iron-pages>
       </app-header-layout>

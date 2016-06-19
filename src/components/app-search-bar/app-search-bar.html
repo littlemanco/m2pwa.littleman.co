@@ -1,55 +1,54 @@
-<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../../../polymer/polymer.html" />
 
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 
 <dom-module id="app-search-bar">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
 
-      paper-input {
-        --paper-input-container-color: white;
-        --paper-input-container-focus-color: white;
-      }
+            paper-input {
+                --paper-input-container-color: white;
+                --paper-input-container-focus-color: white;
+            }
 
-      paper-icon-button {
-        display: inline-block;
-      }
+            paper-icon-button {
+                display: block;
+            }
 
-      paper-input {
-        display: inline-block;
-      }
+            paper-input {
+                display: none;
+            }
 
-      [hidden] {
-        display: none;
-      }
+            [is-search] paper-icon-button {
+                display: none;
+            }
 
-    </style>
-    <paper-input type="text"
-      name="search"
-      placeholder="Search..."
-      autocomplete="off"
-      hidden$="{{hide}}"
-      no-label-float></paper-input>
+            [is-search] paper-input {
+                display: block;
+            }
 
-    <paper-icon-button icon="search" role="button" on-tap="toggleSearch"></paper-icon-button>
-  </template>
-  <script type="text/javascript">
-    Polymer({
-      is: 'app-search-bar',
-      properties: {
-        hide: {
-          type: Boolean,
-          value: true
-        }
-      },
-      // https://github.com/viljoviitanen/polymer-search-bar-demo/blob/master/search-bar.html
-      toggleSearch: function() {
-        this.hide = !this.hide
-      }
-    });
-  </script>
+        </style>
+        <div id="js-search-input" is-search$="{{isSearch}}">
+            <paper-input type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float></paper-input>
+            <paper-icon-button icon="search" role="button" on-tap="toggleSearch"></paper-icon-button>
+        </div>
+    </template>
+    <script type="text/javascript">
+        Polymer({
+            is: 'app-search-bar',
+            properties: {
+                isSearch: {
+                    type: Boolean,
+                    value: false
+                }
+            },
+            toggleSearch: function() {
+                this.isSearch = !this.isSearch
+            }
+        });
+    </script>
 </dom-module>

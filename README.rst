@@ -7,6 +7,8 @@ Project Outline
 
 Magneto provides a reasonable REST API. Recently, offline first web applications (or PWAs) have become a thing. "Offline First" seems like a super conceptual model to build a web application, and an e-commerce store seems like a suitable thing to make an application. 
 
+The site I'm going to build is a psuedo martial arts website, as I'm pretty into a martial art called "Muay Thai", and it's something I know a little about.
+
 Project Goals
 '''''''''''''
 

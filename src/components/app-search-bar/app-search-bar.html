@@ -23,13 +23,33 @@
         display: inline-block;
       }
 
+      [hidden] {
+        display: none;
+      }
+
     </style>
-    <paper-input type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float></paper-input>
-    <paper-icon-button icon="search" role="button"></paper-icon-button>
+    <paper-input type="text"
+      name="search"
+      placeholder="Search..."
+      autocomplete="off"
+      hidden$="{{hide}}"
+      no-label-float></paper-input>
+
+    <paper-icon-button icon="search" role="button" on-tap="toggleSearch"></paper-icon-button>
   </template>
   <script type="text/javascript">
     Polymer({
-      is: 'app-search-bar'
+      is: 'app-search-bar',
+      properties: {
+        hide: {
+          type: Boolean,
+          value: true
+        }
+      },
+      // https://github.com/viljoviitanen/polymer-search-bar-demo/blob/master/search-bar.html
+      toggleSearch: function() {
+        this.hide = !this.hide
+      }
     });
   </script>
 </dom-module>

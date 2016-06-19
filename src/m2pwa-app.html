@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="components/app-search-bar/app-search-bar.html">
 <link rel="import" href="m2pwa-icons.html">
 
 <dom-module id="m2pwa-app">
@@ -38,11 +39,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
-      }
-
-      app-header paper-input {
-        --paper-input-container-color: white;
-        --paper-input-container-focus-color: white;
       }
 
       .drawer-list {
@@ -93,9 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div title>m2pwa</div>
-            <paper-input type="text" name="search" placeholder="Search..." no-label-float>
-            </paper-input>
-            <paper-icon-button icon="search"></paper-icon-button>
+            <app-search-bar></app-search-bar>
           </app-toolbar>
         </app-header>
 

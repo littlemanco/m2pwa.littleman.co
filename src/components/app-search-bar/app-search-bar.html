@@ -1,0 +1,35 @@
+<link rel="import" href="../polymer/polymer.html" />
+
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="app-search-bar">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      paper-input {
+        --paper-input-container-color: white;
+        --paper-input-container-focus-color: white;
+      }
+
+      paper-icon-button {
+        display: inline-block;
+      }
+
+      paper-input {
+        display: inline-block;
+      }
+
+    </style>
+    <paper-input type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float></paper-input>
+    <paper-icon-button icon="search" role="button"></paper-icon-button>
+  </template>
+  <script type="text/javascript">
+    Polymer({
+      is: 'app-search-bar'
+    });
+  </script>
+</dom-module>

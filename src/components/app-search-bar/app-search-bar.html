@@ -15,25 +15,27 @@
                 --paper-input-container-focus-color: white;
             }
 
-            paper-icon-button {
+            [icon="search"] {
                 display: block;
             }
 
+            [icon="close"],
             paper-input {
                 display: none;
             }
 
-            [is-search] paper-icon-button {
+            [is-search] [icon="search"] {
                 display: none;
             }
 
-            [is-search] paper-input {
-                display: block;
+            [is-search] paper-input,
+            [is-search] [icon="close"] {
+                display: inline-block;
             }
-
         </style>
-        <div id="js-search-input" is-search$="{{isSearch}}">
-            <paper-input type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float></paper-input>
+        <div is-search$="{{isSearch}}">
+            <paper-icon-button icon="close" role="button" on-tap="toggleSearch"></paper-icon-button>
+            <paper-input id="jsInput" type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float></paper-input>
             <paper-icon-button icon="search" role="button" on-tap="toggleSearch"></paper-icon-button>
         </div>
     </template>
@@ -48,6 +50,10 @@
             },
             toggleSearch: function() {
                 this.isSearch = !this.isSearch
+
+                if (this.isSearch) {
+                    this.$.jsInput.focus();
+                }
             }
         });
     </script>

@@ -4,6 +4,7 @@
   "fragments": [
     "src/m2pwa-home.html",
     "src/m2pwa-search.html",
-    "src/m2pwa-view3.html"
+    "src/m2pwa-product.html",
+    "src/m2pwa-checkout.html"
   ]
 }

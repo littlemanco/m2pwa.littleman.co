@@ -37,9 +37,9 @@ build-frontend-application: ## Builds the polymer application
 	cd frontend && polymer build
 
 build-frontend-webserver: ## Builds the webserver container
-	docker build -f build/docker/nginx/Dockerfile -t ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} .
+	docker build --no-cache -f build/docker/nginx/Dockerfile -t ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} .
 
-push-frontend: ## Pushes the webserver container to the gcr bucket
+push-frontend-webserver: ## Pushes the webserver container to the gcr bucket
 	docker tag ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}
 	docker push gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}
 

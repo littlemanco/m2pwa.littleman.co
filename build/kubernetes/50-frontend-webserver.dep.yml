@@ -45,7 +45,7 @@ spec:
         readinessProbe:
           httpGet:
             # Path to probe; akin to a status check.
-            path: /status.html
+            path: / # Don't quite know how to rig up a status.html page.
             port: 80 # Todo: Change this to 443 once we have TLS Certificates
             httpHeaders:
               - name: Host

@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: "nginx"
-        image: "m2pwa-littleman-co-frontend-webserver:{{ APP_VERSION }}"
+        image: "gcr.io/littleman-co/m2pwa-littleman-co-frontend-webserver:{{ APP_VERSION }}"
         imagePullPolicy: "IfNotPresent"
         ports:
         - containerPort: 80

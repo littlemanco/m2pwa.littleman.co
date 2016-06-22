@@ -26,3 +26,6 @@ help: ## Show this menu
 	@echo -e $(ANSI_TITLE)m2pwa.littleman.co$(ANSI_OFF)$(ANSI_SUBTITLE)" - A demonstration of a progressive web app with Magento 2"$(ANSI_OFF)
 	@echo -e $(ANSI_TITLE)Commands:$(ANSI_OFF)
 	@grep -E '^[a-zA-Z_-%]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[32m%-30s\033[0m %s\n", $$1, $$2}'
+
+build-container-nginx:
+	docker build -f build/docker/nginx/Dockerfile .

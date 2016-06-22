@@ -1,0 +1,21 @@
+<html><head><link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+
+</head><body><dom-module id="app-search-bar">
+    <template>
+        <style>:host{display:block;flex:1;}.search-bar__search{display:block;float:;}.search-bar__close,
+            .search-bar__input{display:none;}.search-bar--active{display:flex;flex-direction:row;align-items:flex-end;}.search-bar--active .search-bar__close,
+            .search-bar--active .search-bar__input{display:block;}.search-bar--active .search-bar__input{flex:1 1 auto;}.search-bar--active .search-bar__close{flex:0 0 auto;}.search-bar--active .search-bar__search{display:none;}paper-input{--paper-input-container-color:white;--paper-input-container-focus-color:white;--paper-input-container-input-color:white;}</style>
+
+        
+        <div id="jsSearchBar" class="search-bar">
+            <paper-icon-button class="search-bar__close" icon="close" role="button" on-tap="toggleSearch"></paper-icon-button>
+            <paper-input class="search-bar__input" id="jsInput" type="text" name="search" placeholder="Search..." autocomplete="off" no-label-float=""></paper-input>
+            <paper-icon-button class="search-bar__search" icon="search" role="button" on-tap="toggleSearch"></paper-icon-button>
+        </div>
+    </template>
+    <script type="text/javascript">var activeClass="search-bar--active";Polymer({is:"app-search-bar",properties:{isSearch:{type:Boolean,value:!1}},toggleSearch:function(){this.isSearch=!this.isSearch,this.isSearch?(this.$.jsSearchBar.classList.add(activeClass),this.$.jsInput.focus(),this.setAttribute("mode","search")):(this.$.jsSearchBar.classList.remove(activeClass),this.setAttribute("mode","icon"))}});</script>
+</dom-module>
+</body></html>

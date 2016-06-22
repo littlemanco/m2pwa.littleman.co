@@ -59,6 +59,12 @@ Magento  Compatibility
   Y
 =====
 
+Browser Compatability
+'''''''''''''''''''''
+
+- CH53 (Linux, Android)
+- iOS9
+
 Installation
 -------------
 

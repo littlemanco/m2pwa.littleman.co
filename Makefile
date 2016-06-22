@@ -42,3 +42,14 @@ build-frontend-webserver: ## Builds the webserver container
 push-frontend: ## Pushes the webserver container to the gcr bucket
 	docker tag ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}
 	docker push gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}
+
+deploy-frontend-webserver: ## Updates kubernetes to request the current version of the application
+	sed "s/{{ APP_VERSION }}/${APP_VERSION}/" build/kubernetes/* | kubectl apply -f -
+
+clean: ## Delete generated files
+	- rm -rf frontend/build
+
+do-everything: ## A crap task that means "Rebuild everything from scratch"
+	make build-frontend-application
+	make build-frontend-webserver
+	make push-frontend

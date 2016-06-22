@@ -13,6 +13,8 @@ PROJECT_NS   := m2pwa-littleman-co
 CONTAINER_NS := m2pwa-littleman-co
 GIT_HASH     := $(shell git rev-parse --short HEAD)
 
+GCR_NAMESPACE := littleman-co
+
 ANSI_TITLE        := '\e[1;32m'
 ANSI_CMD          := '\e[0;32m'
 ANSI_TITLE        := '\e[0;33m'
@@ -30,5 +32,13 @@ help: ## Show this menu
 	@echo -e $(ANSI_TITLE)Commands:$(ANSI_OFF)
 	@grep -E '^[a-zA-Z_-%]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
-build-container-nginx:
-	docker build -f build/docker/nginx/Dockerfile -t nginx:$(APP_VERSION) .
+build-frontend-application: ## Builds the polymer application
+	cd frontend && bower install
+	cd frontend && polymer build
+
+build-frontend-webserver: ## Builds the webserver container
+	docker build -f build/docker/nginx/Dockerfile -t ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} .
+
+push-frontend: ## Pushes the webserver container to the gcr bucket
+	docker tag ${CONTAINER_NS}-frontend-webserver:${APP_VERSION} gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}
+	docker push gcr.io/${GCR_NAMESPACE}/${CONTAINER_NS}-frontend-webserver:${APP_VERSION}

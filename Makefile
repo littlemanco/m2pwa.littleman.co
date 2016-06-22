@@ -6,6 +6,9 @@
 
 SHELL := /bin/bash
 
+# http://stackoverflow.com/questions/1404796/how-to-get-the-latest-tag-name-in-current-branch-in-git
+APP_VERSION := $(shell git describe --abbrev=0)
+
 PROJECT_NS   := m2pwa-littleman-co
 CONTAINER_NS := m2pwa-littleman-co
 GIT_HASH     := $(shell git rev-parse --short HEAD)
@@ -28,4 +31,4 @@ help: ## Show this menu
 	@grep -E '^[a-zA-Z_-%]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "    \033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
 build-container-nginx:
-	docker build -f build/docker/nginx/Dockerfile .
+	docker build -f build/docker/nginx/Dockerfile -t nginx:$(APP_VERSION) .

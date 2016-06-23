@@ -32,7 +32,7 @@ spec:
         - name: "DOMAINS"
           value: "m2pwa.littleman.co" # todo: Add the api.m2pwa.littleman.co endpoint to this at some point.
         - name: "DEPLOYMENTS"
-          value: "frontend-webserver" # Todo: Add backend webserver to this at some point.
+          value: "nginx-deployment" # Todo: Add backend webserver to this at some point.
         - name: "SECRET_NAME"
           value: "webserver-etc-tls"
         - name: "NAMESPACE"

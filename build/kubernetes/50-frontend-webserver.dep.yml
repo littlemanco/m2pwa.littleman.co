@@ -43,7 +43,7 @@ spec:
         livenessProbe:
           httpGet:
             # Path to probe; should be cheap, but representative of typical behavior
-            path: /
+            path: /status
             port: 80 # Todo: Change this to 443 once we have TLS Certificates
             httpHeaders:
               - name: Host
@@ -53,7 +53,7 @@ spec:
         readinessProbe:
           httpGet:
             # Path to probe; akin to a status check.
-            path: / # Don't quite know how to rig up a status.html page.
+            path: /status
             port: 80 # Todo: Change this to 443 once we have TLS Certificates
             httpHeaders:
               - name: Host

@@ -30,7 +30,7 @@ spec:
         - name: "EMAIL"
           value: "hello@andrewhowden.com"
         - name: "DOMAINS"
-          value: "m2pwa.littleman.co dev.m2pwa.littleman.co" # todo: Add the api.m2pwa.littleman.co endpoint to this at some point.
+          value: "m2pwa.littleman.co" # todo: Add the api.m2pwa.littleman.co endpoint to this at some point.
         - name: "DEPLOYMENTS"
           value: "frontend-webserver" # Todo: Add backend webserver to this at some point.
         - name: "SECRET_NAME"

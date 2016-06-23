@@ -25,6 +25,10 @@ spec:
         application: "nginx"
         role: "webserver"
     spec:
+      volumes:
+        - name: "webserver-etc-tls"
+          secret:
+            secretName: "webserver-etc-tls"
       containers:
       - name: "nginx"
         image: "gcr.io/littleman-co/m2pwa-littleman-co-frontend-webserver:{{ APP_VERSION }}"
@@ -32,6 +36,10 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
+        volumeMounts:
+          - name: "webserver-etc-tls"
+            readOnly: true
+            mountPath: "/etc/tls"
         livenessProbe:
           httpGet:
             # Path to probe; should be cheap, but representative of typical behavior

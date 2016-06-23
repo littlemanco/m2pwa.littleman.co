@@ -1,3 +1,6 @@
+# Keys
+*.pem
+
 bower_components
 dist
 node_modules
